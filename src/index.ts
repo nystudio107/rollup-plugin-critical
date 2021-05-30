@@ -6,8 +6,6 @@ const criticalSuffix = '_critical.min.css';
 
 const defaultCriticalConfig = {
   base: './',
-  src: 'index.html',
-  target: 'index.css',
   inline: false,
   minify: true,
   extract: false,
@@ -26,8 +24,9 @@ interface CriticalPages {
 
 interface CriticalPluginConfig {
   criticalUrl: string;
+  criticalBase?: string;
   pages: Partial<CriticalPages>[];
-  criticalConfig: Partial<CriticalConfig>;
+  criticalConfig?: Partial<CriticalConfig>;
 }
 
 function PluginCritical(pluginConfig: CriticalPluginConfig): Plugin {
@@ -48,23 +47,23 @@ function PluginCritical(pluginConfig: CriticalPluginConfig): Plugin {
       if (!css.length) {
         return;
       }
-      // Merge in our options
-      let options = Object.assign(
-          { css },
-          defaultCriticalConfig,
-          pluginConfig.criticalConfig
-      );
       // Iterate through the pages
       for (const page of pluginConfig.pages) {
+        const criticalBase = pluginConfig.criticalBase;
         const criticalSrc = pluginConfig.criticalUrl + page.uri;
         const criticalDest = page.template + criticalSuffix;
-        options = Object.assign(
-            options,
-            {
+        // Merge in our options
+        const options = Object.assign(
+            { css },
+            defaultCriticalConfig,
+    {
+              base: criticalBase,
               src: criticalSrc,
               target: criticalDest,
-            }
+            },
+            pluginConfig.criticalConfig
         );
+        // Generate the Critical CSS
         console.log(`Generating critical CSS from ${criticalSrc} to ${criticalDest}`);
         await critical.generate(options, (err: string) => {
           if (err) {
