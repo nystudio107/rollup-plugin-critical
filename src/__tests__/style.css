@@ -1,3 +1,7 @@
 .heading {
     color: red;
 }
+
+.unused-class {
+    border: 3px solid blue;
+}
