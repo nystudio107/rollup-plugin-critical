@@ -11,8 +11,8 @@ const defaultCriticalConfig = {
   inline: false,
   minify: true,
   extract: false,
-  width: 375,
-  height: 565,
+  width: 1200,
+  height: 1200,
   concurrency: 4,
   penthouse: {
     blockJSRequests: false
