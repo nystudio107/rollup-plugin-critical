@@ -1,12 +1,15 @@
 import {Plugin} from 'rollup';
 import critical from '../index';
 import fs from 'fs';
+import path from 'path';
+
+const TESTS_ROOT = './src/__tests__/';
 
 test('Basic Critical CSS generation', done => {
     function callback(err: string) {
         try {
-            expect(fs.readFileSync('./src/__tests__/test_critical.min.css'))
-                .toEqual(fs.readFileSync('./src/__tests__/index_critical.min.css'));
+            expect(fs.readFileSync(path.join(TESTS_ROOT, 'test_critical.min.css')))
+                .toEqual(fs.readFileSync(path.join(TESTS_ROOT, 'index_critical.min.css')));
             done();
         } catch (error) {
             done(error);
@@ -14,8 +17,8 @@ test('Basic Critical CSS generation', done => {
     }
     // Instantiate the Rollup plugin
     const plugin: Plugin = critical({
-        criticalBase: './src/__tests__/',
-        criticalUrl: './src/__tests__/',
+        criticalBase: TESTS_ROOT,
+        criticalUrl: TESTS_ROOT,
         pages: [
             {
                 uri: 'index.html',
@@ -23,12 +26,18 @@ test('Basic Critical CSS generation', done => {
             }
         ],
         criticalConfig: {
-            css: ['./src/__tests__/style.css'],
         }
     }, callback);
     // Call the plugin to generate critical css
     if (plugin && plugin.writeBundle) {
         // @ts-ignore
-        const result = plugin.writeBundle(undefined, undefined);
+        const result = plugin.writeBundle({
+            dir: TESTS_ROOT,
+        }, {
+            chunk: {
+                type: 'asset',
+                fileName: 'style.css',
+            }
+        });
     }
 });
