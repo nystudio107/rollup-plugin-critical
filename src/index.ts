@@ -67,7 +67,6 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function)
         );
         // Generate the Critical CSS
         console.log(`Generating critical CSS from ${criticalSrc} to ${criticalDest}`);
-        console.log(options);
         await critical.generate(options, (err: string) => {
           if (err) {
             console.error(err);
