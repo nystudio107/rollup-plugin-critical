@@ -5,6 +5,7 @@
 It uses the [critical](https://github.com/addyosmani/critical) generator under the hood.
 
 ![Build](https://github.com/nystudio107/rollup-plugin-critical/actions/workflows/node.js.yml/badge.svg)
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/khalwat/550f6ee414a26e0c8eae7cb6af3c214e/raw/rollup-plugin-critical__heads_master.json)
 
 ## Install
 
