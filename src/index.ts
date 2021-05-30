@@ -29,23 +29,25 @@ interface CriticalPluginConfig {
   criticalConfig?: Partial<CriticalConfig>;
 }
 
-function PluginCritical(pluginConfig: CriticalPluginConfig): Plugin {
+function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function): Plugin {
   return {
     name: 'critical',
     async writeBundle(outputOptions, bundle) {
       const css: Array<string> = [];
       // Find all of the generated CSS assets
-      for (const chunk of Object.values(bundle)) {
-        if (chunk.type ==='asset' && chunk.fileName.endsWith('.css')) {
-          if (outputOptions.dir !== undefined) {
-            const cssFile = path.join(outputOptions.dir, chunk.fileName);
-            css.push(cssFile);
+      if (bundle) {
+        for (const chunk of Object.values(bundle)) {
+          if (chunk.type === 'asset' && chunk.fileName.endsWith('.css')) {
+            if (outputOptions.dir !== undefined) {
+              const cssFile = path.join(outputOptions.dir, chunk.fileName);
+              css.push(cssFile);
+            }
           }
         }
-      }
-      // If we have no CSS, skip bundle
-      if (!css.length) {
-        return;
+        // If we have no CSS, skip bundle
+        if (!css.length) {
+          return;
+        }
       }
       // Iterate through the pages
       for (const page of pluginConfig.pages) {
@@ -56,7 +58,7 @@ function PluginCritical(pluginConfig: CriticalPluginConfig): Plugin {
         const options = Object.assign(
             { css },
             defaultCriticalConfig,
-    {
+            {
               base: criticalBase,
               src: criticalSrc,
               target: criticalDest,
@@ -65,9 +67,13 @@ function PluginCritical(pluginConfig: CriticalPluginConfig): Plugin {
         );
         // Generate the Critical CSS
         console.log(`Generating critical CSS from ${criticalSrc} to ${criticalDest}`);
+        console.log(options);
         await critical.generate(options, (err: string) => {
           if (err) {
             console.error(err);
+          }
+          if (callback) {
+            callback(err);
           }
         });
       }

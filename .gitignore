@@ -3,6 +3,8 @@ dist/
 node_modules/
 yarn-error.log
 npm-debug.log
+coverage/
+src/__tests__/test_critical.min.css
 
 # MISC FILES
 .cache
