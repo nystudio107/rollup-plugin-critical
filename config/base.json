@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "newLine": "lf",
+    "esModuleInterop": true
+  },
+  "include": [
+    "../src"
+  ]
+}

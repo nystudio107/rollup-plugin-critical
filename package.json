@@ -1,0 +1,49 @@
+{
+  "name": "rollup-plugin-critical",
+  "version": "1.0.0",
+  "description": "Rollup plugin to generate critical CSS.",
+  "author": "nystudio107",
+  "license": "MIT",
+  "keywords": [
+    "rollup",
+    "plugin",
+    "critical",
+    "css"
+  ],
+  "homepage": "https://github.com/nystudio107/rollup-plugin-critical",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://github.com/nystudio107/rollup-plugin-critical"
+  },
+  "bugs": {
+    "url": "https://github.com/nystudio107/rollup-plugin-critical/issues"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:cjs": "tsc -p config/cjs.json",
+    "build:esm": "tsc -p config/esm.json",
+    "build:types": "tsc -p config/types.json",
+    "check": "tsc -p config/base.json --noEmit",
+    "lint": "eslint -p .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "critical": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.6.0",
+    "rollup": "^2.50.4",
+    "typescript": "latest"
+  },
+  "peerDependencies": {
+    "rollup": ">=1.25.0"
+  }
+}
