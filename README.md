@@ -4,6 +4,8 @@
 
 It uses the [critical](https://github.com/addyosmani/critical) generator under the hood.
 
+![Build](https://github.com/nystudio107/rollup-plugin-critical/actions/workflows/node.js.yml/badge.svg)
+
 ## Install
 
 ```sh
