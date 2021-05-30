@@ -7,7 +7,7 @@ DOCKERRUN=docker container run \
 	-v `pwd`:/app \
 	${CONTAINER}:${TAG}
 
-.PHONY: docker build dev fix install lint update npm
+.PHONY: docker build install test update npm
 
 docker:
 	docker build \
@@ -18,15 +18,9 @@ docker:
 build: docker install update
 	${DOCKERRUN} \
 		run build
-check: docker install
-	${DOCKERRUN} \
-		run check
 install: docker
 	${DOCKERRUN} \
 		install
-lint: docker install
-	${DOCKERRUN} \
-		run lint
 test: docker install
 	${DOCKERRUN} \
 		run test
