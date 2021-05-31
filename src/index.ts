@@ -36,7 +36,7 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function)
       // Find all of the generated CSS assets
       for (const chunk of Object.values(bundle)) {
         if (chunk.type === 'asset' && chunk.fileName.endsWith('.css')) {
-          const cssFile = path.join(outputOptions.dir ?? '', chunk.fileName);
+          const cssFile = path.join(outputOptions.dir || '', chunk.fileName);
           css.push(cssFile);
         }
       }
