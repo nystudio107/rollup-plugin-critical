@@ -1,0 +1,7 @@
+{
+  "extends": "./base",
+  "compilerOptions": {
+    "module": "es6",
+    "outDir": "../dist/esm"
+  }
+}
