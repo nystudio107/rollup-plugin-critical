@@ -4,7 +4,7 @@ const critical = require('critical');
 
 const criticalSuffix = '_critical.min.css';
 
-const defaultCriticalConfig = {
+const defaultCriticalConfig: Partial<CriticalConfig> = {
   inline: false,
   minify: true,
   extract: false,
@@ -17,17 +17,35 @@ const defaultCriticalConfig = {
 };
 
 interface CriticalPages {
+  /** Combined with `criticalUrl` to determine the URLs to scrape for Critical CSS */
   uri: string;
+  /** Critical CSS files are named with the `template` path, and saved to the `criticalBase` directory */
   template: string;
 }
 
 interface CriticalPluginConfig {
+  /** The base URL to use in combination with the `criticalPages` `uri`s to determine the URLs to scrape for Critical CSS */
   criticalUrl: string;
+  /** The base file system path to where the generated Critical CSS file should be stored */
   criticalBase?: string;
+  /**
+   * An array objects that contain the page `uri`s that are combined with the `criticalUrl` to
+   * determine the URLs to scrape for Critical CSS. The resulting files are named with the
+   * `template` path, and saved to the `criticalBase` directory
+   */
   criticalPages: Partial<CriticalPages>[];
+  /** This is the full [config for critical](https://github.com/addyosmani/critical#options) that is passed through to the `critical` package.*/
   criticalConfig?: Partial<CriticalConfig>;
 }
 
+/**
+ * [Vite.js](https://vitejs.dev/) & [Rollup](https://rollupjs.org/) plugin for generating critical CSS
+ * that uses the [critical](https://github.com/addyosmani/critical) generator under the hood.
+ *
+ * @param {CriticalPluginConfig} pluginConfig - the plugin configuration object
+ * @param {Function} callback - callback upon completion of the critical CSS generation
+ * @constructor
+ */
 function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function): Plugin {
   return {
     name: 'critical',
