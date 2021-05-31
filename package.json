@@ -30,7 +30,7 @@
     "build": "npm run build:cjs && npm run build:esm && npm run build:types",
     "build:cjs": "tsc -p config/cjs.json",
     "build:esm": "tsc -p config/esm.json",
-    "build:types": "tsc -p config/types.json",
+    "build:types": "cp src/@types/penthouse.d.ts dist/index.d.ts && cat src/@types/critical.d.ts >> dist/index.d.ts && cat src/@types/rollup-plugin-critical.d.ts >> dist/index.d.ts",
     "check": "tsc -p config/base.json --noEmit",
     "lint": "eslint -p .",
     "test": "jest --passWithNoTests --coverage"

@@ -1,6 +1,6 @@
-type DeclCallback = (node: object, value: string) => boolean;
+export type DeclCallback = (node: object, value: string) => boolean;
 
-interface CriticalConfig {
+export interface CriticalConfig {
     /** Inline critical-path CSS using filamentgroup's loadCSS. Pass an object to configure `inline-critical` */
     inline: boolean;
     /** Base directory in which the source and destination are to be written */

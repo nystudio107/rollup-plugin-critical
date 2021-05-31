@@ -1,4 +1,4 @@
-interface PenthouseConfig {
+export interface PenthouseConfig {
     /** Accessible url. Use file:/// protocol for local html files. */
     url: string;
     /** Original css to extract critical css from */
