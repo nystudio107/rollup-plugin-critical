@@ -46,15 +46,25 @@ export default {
 
 ### `criticalUrl: string`
 
-The base URL to use in combination with the `criticalPages` `uri`s to determine the URLs to scrape for Critical CSS
+The base URL to use in combination with the `criticalPages` `uri`s to determine the URLs to scrape for Critical CSS.
+
+This can also be a file system path. This is combined with `criticalPages.uri` (see below) to determine pages to scrap for critical CSS.
+
+Determines the `criticalConfig.src` property (see below)
 
 ### `criticalBase: string`
 
-The base file system path to where the generated Critical CSS file should be stored
+The base file system path to where the generated Critical CSS file should be saved.
+
+This is combined with `criticalPages.template` (see below) with `_critical.min.css` appended to it to determine the saved critical CSS file name.
+
+Determines the `criticalConfig.target` property (see below)
 
 ### `criticalPages: array of objects`
 
-An array objects that contain the page `uri`s that are combined with the `criticalUrl` to determine the URLs to scrape for Critical CSS. The resulting files are named with the `template` path, and saved to the `criticalBase` directory
+An array objects that contain the page `uri`s that are combined with the `criticalUrl` to determine the URLs to scrape for Critical CSS.
+
+The resulting files are named with the `template` path, and saved to the `criticalBase` directory
 
 ### `criticalConfig: object`
 
@@ -69,7 +79,6 @@ const defaultCriticalConfig = {
   extract: false,
   width: 1200,
   height: 1200,
-  concurrency: 4,
   penthouse: {
     blockJSRequests: false
   }
