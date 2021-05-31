@@ -79,7 +79,6 @@ const defaultCriticalConfig = {
   extract: false,
   width: 1200,
   height: 1200,
-  concurrency: 4,
   penthouse: {
     blockJSRequests: false
   }
