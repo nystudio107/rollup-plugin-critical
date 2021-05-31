@@ -34,19 +34,15 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function)
     async writeBundle(outputOptions, bundle) {
       const css: Array<string> = [];
       // Find all of the generated CSS assets
-      if (bundle) {
-        for (const chunk of Object.values(bundle)) {
-          if (chunk.type === 'asset' && chunk.fileName.endsWith('.css')) {
-            if (outputOptions.dir !== undefined) {
-              const cssFile = path.join(outputOptions.dir, chunk.fileName);
-              css.push(cssFile);
-            }
-          }
+      for (const chunk of Object.values(bundle)) {
+        if (chunk.type === 'asset' && chunk.fileName.endsWith('.css')) {
+          const cssFile = path.join(outputOptions.dir ?? '', chunk.fileName);
+          css.push(cssFile);
         }
-        // If we have no CSS, skip bundle
-        if (!css.length) {
-          return;
-        }
+      }
+      // If we have no CSS, skip bundle
+      if (!css.length) {
+        return;
       }
       // Iterate through the pages
       for (const page of pluginConfig.criticalPages) {
