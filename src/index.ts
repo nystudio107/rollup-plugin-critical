@@ -5,7 +5,6 @@ const critical = require('critical');
 const criticalSuffix = '_critical.min.css';
 
 const defaultCriticalConfig = {
-  base: './',
   inline: false,
   minify: true,
   extract: false,
@@ -25,7 +24,7 @@ interface CriticalPages {
 interface CriticalPluginConfig {
   criticalUrl: string;
   criticalBase?: string;
-  pages: Partial<CriticalPages>[];
+  criticalPages: Partial<CriticalPages>[];
   criticalConfig?: Partial<CriticalConfig>;
 }
 
@@ -50,7 +49,7 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function)
         }
       }
       // Iterate through the pages
-      for (const page of pluginConfig.pages) {
+      for (const page of pluginConfig.criticalPages) {
         const criticalBase = pluginConfig.criticalBase;
         const criticalSrc = pluginConfig.criticalUrl + page.uri;
         const criticalDest = page.template + criticalSuffix;

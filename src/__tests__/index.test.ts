@@ -19,7 +19,7 @@ test('Basic Critical CSS generation', done => {
     const plugin: Plugin = critical({
         criticalBase: TESTS_ROOT,
         criticalUrl: TESTS_ROOT,
-        pages: [
+        criticalPages: [
             {
                 uri: 'index.html',
                 template: 'test',
