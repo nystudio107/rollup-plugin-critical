@@ -73,6 +73,6 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function)
       }
     }
   }
-};
+}
 
 export default PluginCritical
