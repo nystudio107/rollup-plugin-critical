@@ -39,10 +39,10 @@
     "critical": "^3.1.0"
   },
   "devDependencies": {
-    "@types/node": "^14.6.0",
     "@types/jest": "^26.0.23",
+    "@types/node": "^14.6.0",
     "jest": "^27.0.3",
-    "rollup": "^2.50.4",
+    "rollup": "^2.50.5",
     "ts-jest": "^27.0.1",
     "typescript": "latest"
   },
