@@ -76,9 +76,12 @@ const defaultCriticalConfig = {
 };
 ```
 
-The `base` property is set to `criticalBase`, but can be overridden as need.
+The following [critical config properties](https://github.com/addyosmani/critical#options) are set dynamically by `rollup-plugin-critical`, but can be overridden via `criticalConfig`:
 
-The `src` and `target` properties are dynamically computed from `criticalUrl` and `criticalPages` settings, but they can be overridden as needed.
+- **`css`** - set to the css files that are generated in the Rollup build
+- **`base`** - property is set to `criticalBase`
+- **`src`** - derived from `criticalUrl` and `criticalPages.uri`
+- **`target`** - derived from `criticalPages.template` with `_critical.min.css` appended to it
 
 ## License
 
