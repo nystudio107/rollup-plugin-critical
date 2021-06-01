@@ -72,16 +72,16 @@ This is the full [config for critical](https://github.com/addyosmani/critical#op
 
 You may optionally override any properties you like here. The default values passed in are:
 
-```js
-const defaultCriticalConfig = {
-  inline: false,
-  minify: true,
-  extract: false,
-  width: 1200,
-  height: 1200,
-  penthouse: {
-    blockJSRequests: false
-  }
+```ts
+const defaultCriticalConfig: Partial<CriticalConfig> = {
+    inline: false,
+    minify: true,
+    extract: false,
+    width: 1200,
+    height: 1200,
+    penthouse: {
+        blockJSRequests: false
+    }
 };
 ```
 
