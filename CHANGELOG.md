@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.4 - UNRELEASED
+### Changed
+* Split types out into separate files
+* Use Rollup and dts to build the types
+
 ## 1.0.3 - 2021-05-31
 ### Fixed
 * Fixed `dist/index.d.ts` to have complete type definitions
