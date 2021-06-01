@@ -45,4 +45,4 @@ export interface CriticalPluginConfig {
  * @param {Function} callback - callback upon completion of the critical CSS generation
  * @constructor
  */
-declare function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function): Plugin;
+export function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function): Plugin;
