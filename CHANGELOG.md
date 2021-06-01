@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.0.4 - UNRELEASED
+## 1.0.4 - 2021-06-01
 ### Changed
 * Split types out into separate files
 * Use Rollup and dts to build the types
