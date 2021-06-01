@@ -30,7 +30,7 @@
     "build": "npm run build:cjs && npm run build:esm && npm run build:types",
     "build:cjs": "tsc -p config/cjs.json",
     "build:esm": "tsc -p config/esm.json",
-    "build:types": "cp src/types.d.ts dist/index.d.ts",
+    "build:types": "rollup --config ./rollup.types.config.js",
     "check": "tsc -p config/base.json --noEmit",
     "lint": "eslint -p .",
     "test": "jest --passWithNoTests --coverage"
@@ -43,6 +43,7 @@
     "@types/node": "^14.6.0",
     "jest": "^27.0.3",
     "rollup": "^2.50.5",
+    "rollup-plugin-dts": "^3.0.2",
     "ts-jest": "^27.0.2",
     "typescript": "latest"
   },
