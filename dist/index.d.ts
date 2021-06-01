@@ -1,6 +1,4 @@
-import {Plugin} from 'rollup';
-
-export interface PenthouseConfig {
+interface PenthouseConfig {
     /** Accessible url. Use file:/// protocol for local html files. */
     url: string;
     /** Original css to extract critical css from */
@@ -60,9 +58,9 @@ export interface PenthouseConfig {
     allowedResponseCode: number | RegExp | Function;
 }
 
-export type DeclCallback = (node: object, value: string) => boolean;
+type DeclCallback = (node: object, value: string) => boolean;
 
-export interface CriticalConfig {
+interface CriticalConfig {
     /** Inline critical-path CSS using filamentgroup's loadCSS. Pass an object to configure `inline-critical` */
     inline: boolean;
     /** Base directory in which the source and destination are to be written */
@@ -128,14 +126,14 @@ export interface CriticalConfig {
     strict: boolean;
 }
 
-export interface CriticalPages {
+interface CriticalPages {
     /** Combined with `criticalUrl` to determine the URLs to scrape for Critical CSS */
     uri: string;
     /** Critical CSS files are named with the `template` path, and saved to the `criticalBase` directory */
     template: string;
 }
 
-export interface CriticalPluginConfig {
+interface CriticalPluginConfig {
     /**
      * The base URL to use in combination with the `criticalPages` `uri`s to determine the URLs to scrape for Critical CSS.
      * This can also be a file system path. This is combined with `criticalPages.uri`
@@ -164,12 +162,4 @@ export interface CriticalPluginConfig {
     criticalConfig?: Partial<CriticalConfig>;
 }
 
-/**
- * [Vite.js](https://vitejs.dev/) & [Rollup](https://rollupjs.org/) plugin for generating critical CSS
- * that uses the [critical](https://github.com/addyosmani/critical) generator under the hood.
- *
- * @param {CriticalPluginConfig} pluginConfig - the plugin configuration object
- * @param {Function} callback - callback upon completion of the critical CSS generation
- * @constructor
- */
-declare function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function): Plugin;
+export { CriticalPages, CriticalPluginConfig };
