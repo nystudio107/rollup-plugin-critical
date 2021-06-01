@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.3 - 2021-05-31
+### Fixed
+* Fixed `dist/index.d.ts` to have complete type definitions
+
 ## 1.0.2 - 2021-05-31
 ### Changed
 * Administrivia
