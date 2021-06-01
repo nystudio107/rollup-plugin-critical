@@ -1,7 +1,7 @@
 import {Plugin} from 'rollup';
 import path from 'path';
-import { CriticalConfig } from './@types/critical';
-import { CriticalPluginConfig } from './@types/rollup-plugin-critical';
+import { CriticalConfig } from './types';
+import { CriticalPluginConfig } from './types';
 const critical = require('critical');
 
 const criticalSuffix = '_critical.min.css';
@@ -75,4 +75,4 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function)
   }
 }
 
-export default PluginCritical
+export default PluginCritical;
