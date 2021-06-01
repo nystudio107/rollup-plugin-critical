@@ -5,7 +5,7 @@ import dts from 'rollup-plugin-dts';
  */
 export default {
     input: './src/@types/rollup-plugin-critical.d.ts',
-    plugins: [dts({respectExternal: true})],
+    plugins: [dts()],
     output: {
         file: './dist/index.d.ts',
         format: 'es',
