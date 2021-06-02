@@ -2,8 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.6 - 2021-06-01
+### Fixed
+* Fixed build of `dist/index.d.ts` to have the correct default export by sourcing `index.ts`
+
 ## 1.0.5 - 2021-06-01
-### Changed
+### Fixed
 * Fixed `respectExternal` setting
 
 ## 1.0.4 - 2021-06-01
