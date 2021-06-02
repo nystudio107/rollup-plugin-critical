@@ -174,4 +174,4 @@ interface CriticalPluginConfig {
  */
 declare function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function): Plugin;
 
-export { CriticalPages, CriticalPluginConfig, PluginCritical };
+export default PluginCritical;
