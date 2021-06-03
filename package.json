@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-critical",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Rollup plugin to generate critical CSS.",
   "author": "nystudio107",
   "license": "MIT",
@@ -18,8 +18,8 @@
   "bugs": {
     "url": "https://github.com/nystudio107/rollup-plugin-critical/issues"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -27,10 +27,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
-    "build:cjs": "tsc -p config/cjs.json",
-    "build:esm": "tsc -p config/esm.json",
-    "build:types": "rollup --config ./rollup.types.config.js",
+    "build": "tsup src/index.ts --sourcemap --dts --format cjs,esm",
     "check": "tsc -p config/base.json --noEmit",
     "lint": "eslint -p .",
     "test": "jest --passWithNoTests --coverage"
@@ -40,11 +37,11 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
-    "@types/node": "^14.6.0",
+    "@types/node": "^14.17.2",
     "jest": "^27.0.3",
     "rollup": "^2.50.5",
-    "rollup-plugin-dts": "^3.0.2",
     "ts-jest": "^27.0.2",
+    "tsup": "^4.10.1",
     "typescript": "latest"
   },
   "peerDependencies": {

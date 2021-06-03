@@ -1,7 +1,0 @@
-{
-  "extends": "./base",
-  "compilerOptions": {
-    "module": "commonjs",
-    "outDir": "../dist/cjs"
-  }
-}
