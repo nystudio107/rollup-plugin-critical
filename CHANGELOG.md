@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.7 - 2021-06-02
+### Changed
+* Switched to `tsup` for bundling
+
 ## 1.0.6 - 2021-06-01
 ### Fixed
 * Fixed build of `dist/index.d.ts` to have the correct default export by sourcing `index.ts`
