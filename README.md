@@ -75,7 +75,6 @@ You may optionally override any properties you like here. The default values pas
 ```ts
 const defaultCriticalConfig: Partial<CriticalConfig> = {
     inline: false,
-    minify: true,
     extract: false,
     width: 1200,
     height: 1200,

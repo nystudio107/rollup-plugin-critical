@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.8 - 2021.10.15
+### Changed
+* Switched to `critical` `^4.0.0` ([#2](https://github.com/nystudio107/rollup-plugin-critical/issues/2))
+* Remove the `minify` option, since it was removed from `critical` `^4.0.0`
+
 ## 1.0.7 - 2021-06-02
 ### Changed
 * Switched to `tsup` for bundling

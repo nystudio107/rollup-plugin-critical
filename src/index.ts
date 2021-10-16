@@ -11,7 +11,6 @@ const criticalSuffix = '_critical.min.css';
  */
 const defaultCriticalConfig: Partial<CriticalConfig> = {
   inline: false,
-  minify: true,
   extract: false,
   width: 1200,
   height: 1200,

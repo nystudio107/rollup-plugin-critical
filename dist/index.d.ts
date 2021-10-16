@@ -86,8 +86,6 @@ interface CriticalConfig {
     width: number;
     /** Height of the target viewport */
     height: number;
-    /** Enable minification of generated critical-path */
-    minify: boolean;
     /**
      * Remove the inlined styles from any stylesheets referenced in the HTML.
      * It generates new references based on extracted content so it's safe to use for
@@ -174,4 +172,4 @@ interface CriticalPluginConfig {
  */
 declare function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function): Plugin;
 
-export default PluginCritical;
+export { PluginCritical as default };
