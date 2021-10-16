@@ -33,7 +33,7 @@
     "test": "jest --passWithNoTests --coverage"
   },
   "dependencies": {
-    "critical": "^3.1.0"
+    "critical": "^4.0.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",

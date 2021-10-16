@@ -1,8 +1,10 @@
-var __require = (x) => {
+var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
+  get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
+}) : x)(function(x) {
   if (typeof require !== "undefined")
-    return require(x);
+    return require.apply(this, arguments);
   throw new Error('Dynamic require of "' + x + '" is not supported');
-};
+});
 
 // src/index.ts
 import path from "path";
@@ -10,7 +12,6 @@ var critical = __require("critical");
 var criticalSuffix = "_critical.min.css";
 var defaultCriticalConfig = {
   inline: false,
-  minify: true,
   extract: false,
   width: 1200,
   height: 1200,
@@ -36,7 +37,7 @@ function PluginCritical(pluginConfig, callback) {
         const criticalBase = pluginConfig.criticalBase;
         const criticalSrc = pluginConfig.criticalUrl + page.uri;
         const criticalDest = page.template + criticalSuffix;
-        const options = Object.assign({css}, defaultCriticalConfig, {
+        const options = Object.assign({ css }, defaultCriticalConfig, {
           base: criticalBase,
           src: criticalSrc,
           target: criticalDest
