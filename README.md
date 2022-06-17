@@ -89,8 +89,7 @@ The following [critical config properties](https://github.com/addyosmani/critica
 - **`css`** - set to the css files that are generated in the Rollup build
 - **`base`** - property is set to `criticalBase`
 - **`src`** - derived from `criticalUrl` and `criticalPages.uri`
-- **`target`** - derived from `criticalPages.template` with `_critical.min.css` appended to it
-
+- **`target`** - derived from `criticalPages.template` with `_critical.min.css` appended to it. If the `inline` option is set to `true`, the suffix `.html` is appended instead.
 ## License
 
 [MIT](LICENSE) © [nystudio107](https://nystudio107.com)
