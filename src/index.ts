@@ -47,7 +47,8 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function)
       for (const page of pluginConfig.criticalPages) {
         const criticalBase = pluginConfig.criticalBase;
         const criticalSrc = pluginConfig.criticalUrl + page.uri;
-        const criticalDest = page.template + criticalSuffix;
+        // If inline is set to true, use HTML as target, otherwise CSS with suffix
+        const criticalTarget = (pluginConfig.criticalConfig && pluginConfig.criticalConfig.inline == true) ? page.template + ".html" : page.template + criticalSuffix;
         // Merge in our options
         const options = Object.assign(
             { css },
@@ -55,12 +56,12 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function)
             {
               base: criticalBase,
               src: criticalSrc,
-              target: criticalDest,
+              target: criticalTarget,
             },
             pluginConfig.criticalConfig
         );
         // Generate the Critical CSS
-        console.log(`Generating critical CSS from ${criticalSrc} to ${criticalDest}`);
+        console.log(`Generating critical CSS from ${criticalSrc} to ${criticalTarget}`);
         await critical.generate(options, (err: string) => {
           if (err) {
             console.error(err);
