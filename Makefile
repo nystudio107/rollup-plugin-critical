@@ -1,4 +1,4 @@
-TAG?=14-alpine
+TAG?=16-alpine
 CONTAINER?=$(shell basename $(CURDIR))
 DOCKERRUN=docker container run \
 	--name ${CONTAINER} \
@@ -7,7 +7,7 @@ DOCKERRUN=docker container run \
 	-v `pwd`:/app \
 	${CONTAINER}:${TAG}
 
-.PHONY: docker build install test update npm
+.PHONY: docker build clean install test update npm
 
 docker:
 	docker build \
@@ -18,6 +18,9 @@ docker:
 build: docker install update
 	${DOCKERRUN} \
 		run build
+clean:
+	rm -rf node_modules/
+	rm -f package-lock.json
 install: docker
 	${DOCKERRUN} \
 		install
