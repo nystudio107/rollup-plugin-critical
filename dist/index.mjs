@@ -36,13 +36,13 @@ function PluginCritical(pluginConfig, callback) {
       for (const page of pluginConfig.criticalPages) {
         const criticalBase = pluginConfig.criticalBase;
         const criticalSrc = pluginConfig.criticalUrl + page.uri;
-        const criticalDest = page.template + criticalSuffix;
+        const criticalTarget = pluginConfig.criticalConfig && pluginConfig.criticalConfig.inline == true ? page.template + ".html" : page.template + criticalSuffix;
         const options = Object.assign({ css }, defaultCriticalConfig, {
           base: criticalBase,
           src: criticalSrc,
-          target: criticalDest
+          target: criticalTarget
         }, pluginConfig.criticalConfig);
-        console.log(`Generating critical CSS from ${criticalSrc} to ${criticalDest}`);
+        console.log(`Generating critical CSS from ${criticalSrc} to ${criticalTarget}`);
         await critical.generate(options, (err) => {
           if (err) {
             console.error(err);
