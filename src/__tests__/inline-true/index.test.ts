@@ -5,7 +5,7 @@ import { CriticalPluginConfig } from '../../@types/rollup-plugin-critical';
 import { Plugin } from 'rollup';
 
 const testRoot = path.join(__dirname, '/');
-const testOutputPath = path.join(testRoot, 'index.html');
+const testOutputPath = path.join(testRoot, 'test_index.html');
 const expectedOutputPath = path.join(testRoot, 'index_critical.html');
 
 const pluginConfig: CriticalPluginConfig = {
@@ -14,7 +14,7 @@ const pluginConfig: CriticalPluginConfig = {
     criticalPages: [
         {
             uri: 'index.html',
-            template: 'test',
+            template: 'test_index',
         }
     ],
     criticalConfig: {
