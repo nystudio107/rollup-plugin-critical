@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-critical",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Rollup plugin to generate critical CSS.",
   "author": "nystudio107",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "critical": "^4.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^27.0.0",
     "@types/node": "^14.17.2",
     "jest": "^27.0.3",
     "rollup": "^2.50.5",

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.9 - 2022.09.13
+### Added
+* Added support for `inline: true` via ([#5](https://github.com/nystudio107/rollup-plugin-critical/pull/5))
+
 ## 1.0.8 - 2021.10.15
 ### Changed
 * Switched to `critical` `^4.0.0` ([#2](https://github.com/nystudio107/rollup-plugin-critical/issues/2))
