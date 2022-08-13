@@ -3,7 +3,7 @@ CONTAINER?=$(shell basename $(CURDIR))
 DOCKERRUN=docker container run \
 	--name ${CONTAINER} \
 	--rm \
-	-t \
+	-it \
 	-v `pwd`:/app \
 	${CONTAINER}:${TAG}
 
@@ -28,10 +28,15 @@ clean:
 install: docker
 	${DOCKERRUN} \
 		install
-# Perform a dist build, then run npm publish
-publish: docker build
-	${DOCKERRUN} \
-		publish
+# ssh into the container
+ssh: docker
+	docker container run \
+    	--name ${CONTAINER} \
+    	--rm \
+    	-it \
+    	--entrypoint /bin/sh \
+    	-v `pwd`:/app \
+    	${CONTAINER}:${TAG}
 # Run tests via npm run test
 test: docker install
 	${DOCKERRUN} \
