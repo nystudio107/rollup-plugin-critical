@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.10 - UNRELEASED
+### Changed
+* Install the latest `npm` in the Docker image
+* Add `dev`, `release` commands, remove `update` dependency
+* Minify the `dist/` output
+* Update to latest deps
+
 ## 1.0.9 - 2022.09.13
 ### Added
 * Added support for `inline: true` via ([#5](https://github.com/nystudio107/rollup-plugin-critical/pull/5))
