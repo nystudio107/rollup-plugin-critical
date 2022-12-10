@@ -4,6 +4,7 @@ yarn-error.log
 npm-debug.log
 coverage/
 src/__tests__/**/test_*
+.npmrc
 
 # MISC FILES
 .cache
