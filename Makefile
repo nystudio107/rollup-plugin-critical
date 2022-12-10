@@ -7,7 +7,7 @@ DOCKERRUN=docker container run \
 	-v `pwd`:/app \
 	${CONTAINER}:${TAG}
 
-.PHONY: docker build clean install test update npm
+.PHONY: docker build clean dev install release ssh test update npm
 
 # Build the Docker container
 docker:
@@ -17,17 +17,25 @@ docker:
 		--build-arg TAG=${TAG} \
 		--no-cache
 # Perform a dist build
-build: docker install update
+build: docker install
 	${DOCKERRUN} \
 		run build
 # Remove node_modules/ & package-lock.json
 clean:
 	rm -rf node_modules/
 	rm -f package-lock.json
+# Run in watch mode for development
+dev: docker install
+	${DOCKERRUN} \
+		run dev
 # Run npm install
 install: docker
 	${DOCKERRUN} \
 		install
+# Release a new version
+release: docker install
+	${DOCKERRUN} \
+		run release
 # ssh into the container
 ssh: docker
 	docker container run \
