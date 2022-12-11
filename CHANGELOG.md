@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.10 - 2022.12.11
+### Added
+* Add `eslint` to the build phase
+
+### Changed
+* Install the latest `npm` in the Docker image
+* Add `dev`, `release` commands, remove `update` dependency
+* Minify the `dist/` output
+* Clean up type definitions
+* Refactor to use `critical` `^5.0.0`
+* Switch tests from Jest to Vitest
+
 ## 1.0.9 - 2022.09.13
 ### Added
 * Added support for `inline: true` via ([#5](https://github.com/nystudio107/rollup-plugin-critical/pull/5))

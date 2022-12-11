@@ -27,24 +27,28 @@
     "README.md"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --sourcemap --dts --format cjs,esm",
+    "build": "nr lint && tsup src/index.ts --minify --sourcemap --dts --format cjs,esm",
     "check": "tsc -p config/base.json --noEmit",
-    "lint": "eslint -p .",
-    "test": "jest --passWithNoTests --coverage"
+    "dev": "nr build --watch",
+    "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,vue}' --fix",
+    "prepublishOnly": "nr build",
+    "release": "npm publish",
+    "test": "vitest run --coverage",
+    "test-dev": "vitest --coverage"
   },
   "dependencies": {
-    "critical": "^4.0.1"
+    "critical": "^5.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.0",
-    "@types/node": "^14.17.2",
-    "jest": "^27.0.3",
-    "rollup": "^2.50.5",
-    "ts-jest": "^27.0.2",
-    "tsup": "^4.10.1",
-    "typescript": "latest"
-  },
-  "peerDependencies": {
-    "rollup": ">=1.25.0"
+    "@antfu/ni": "^0.18.8",
+    "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@vitest/coverage-c8": "^0.25.7",
+    "eslint": "^8.0.0",
+    "rollup": "^3.0.0",
+    "tsup": "^6.0.0",
+    "typescript": "latest",
+    "vite": "^4.0.0",
+    "vitest": "^0.25.7"
   }
 }

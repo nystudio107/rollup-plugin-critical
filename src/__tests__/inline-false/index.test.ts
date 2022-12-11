@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import critical from '../../index';
-import { CriticalPluginConfig } from '../../@types/rollup-plugin-critical';
-import { Plugin } from 'rollup';
+import {PluginCritical} from '../../index';
+import {Plugin} from 'rollup';
+import {expect, test } from 'vitest'
 
 const testRoot = path.join(__dirname, '/');
 const testOutputPath = path.join(testRoot, 'test_critical.min.css');
@@ -22,22 +22,17 @@ const pluginConfig: CriticalPluginConfig = {
     },
 };
 
-test('`inline: false` Critical CSS generation', done => {
-    function callback(err: string) {
-        try {
+test('`inline: false` Critical CSS generation', () => {
+    function callback() {
             expect(fs.readFileSync(testOutputPath))
                 .toEqual(fs.readFileSync(expectedOutputPath));
-            done();
-        } catch (error) {
-            done(error);
-        }
     }
     // Instantiate the Rollup plugin
-    const plugin: Plugin = critical(pluginConfig, callback);
+    const plugin: Plugin = PluginCritical(pluginConfig, callback);
     // Call the plugin to generate critical css
-    if (plugin && plugin.writeBundle) {
+    if (plugin && typeof plugin.writeBundle === 'function') {
         // @ts-ignore
-        const result = plugin.writeBundle({
+        plugin.writeBundle({
             dir: testRoot,
         }, {
             chunk: {
