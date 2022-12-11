@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import critical from '../../index';
-import { CriticalPluginConfig } from '../../@types/rollup-plugin-critical';
 import { Plugin } from 'rollup';
 
 const testRoot = path.join(__dirname, '/');
@@ -23,7 +22,7 @@ const pluginConfig: CriticalPluginConfig = {
 };
 
 test('`inline: true` Critical CSS generation', done => {
-    function callback(err: string) {
+    function callback() {
         try {
             expect(fs.readFileSync(testOutputPath))
                 .toEqual(fs.readFileSync(expectedOutputPath));
@@ -35,9 +34,9 @@ test('`inline: true` Critical CSS generation', done => {
     // Instantiate the Rollup plugin
     const plugin: Plugin = critical(pluginConfig, callback);
     // Call the plugin to generate critical css
-    if (plugin && plugin.writeBundle) {
+    if (plugin && typeof plugin.writeBundle === 'function') {
         // @ts-ignore
-        const result = plugin.writeBundle({
+        plugin.writeBundle({
             dir: testRoot,
         }, {
             chunk: {
