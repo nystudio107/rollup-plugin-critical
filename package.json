@@ -33,24 +33,21 @@
     "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,vue}' --fix",
     "prepublishOnly": "nr build",
     "release": "npm publish",
-    "test": "jest --passWithNoTests --coverage"
+    "test": "vitest run --passWithNoTests --coverage"
   },
   "dependencies": {
-    "critical": "^4.0.1"
+    "critical": "^5.0.0"
   },
   "devDependencies": {
     "@antfu/ni": "^0.18.8",
-    "@types/jest": "^29.0.0",
     "@types/node": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@vitest/coverage-c8": "^0.25.7",
     "eslint": "^8.0.0",
-    "jest": "^29.0.0",
     "rollup": "^3.0.0",
-    "ts-jest": "^29.0.0",
     "tsup": "^6.0.0",
-    "typescript": "latest"
-  },
-  "peerDependencies": {
-    "rollup": ">=1.25.0"
+    "typescript": "latest",
+    "vite": "^4.0.0",
+    "vitest": "^0.25.7"
   }
 }

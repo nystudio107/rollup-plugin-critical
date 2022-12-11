@@ -1,6 +1,6 @@
 import {Plugin} from 'rollup';
-import path from 'path';
-import * as critical from 'critical';
+import * as path from 'path';
+import {generate} from 'critical';
 
 const criticalSuffix = '_critical.min.css';
 
@@ -25,7 +25,7 @@ const defaultCriticalConfig: Partial<CriticalConfig> = {
  * @param {Function} callback - callback upon completion of the critical CSS generation
  * @constructor
  */
-function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalPluginCallback): Plugin {
+export function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalPluginCallback): Plugin {
   return {
     name: 'critical',
     async writeBundle(outputOptions, bundle) {
@@ -60,7 +60,7 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalP
         );
         // Generate the Critical CSS
         console.log(`Generating critical CSS from ${criticalSrc} to ${criticalTarget}`);
-        await critical.generate(options, (err: string) => {
+        await generate(options, (err: string) => {
           if (err) {
             console.error(err);
           }
@@ -72,5 +72,3 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalP
     }
   }
 }
-
-export default PluginCritical;
