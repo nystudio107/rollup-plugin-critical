@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-critical",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Rollup plugin to generate critical CSS.",
   "author": "nystudio107",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "dev": "nr build --watch",
     "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,vue}' --fix",
     "prepublishOnly": "nr build",
-    "release": "npm publish",
+    "release": "npm login && npm publish",
     "test": "vitest run --coverage",
     "test-dev": "vitest --coverage"
   },
