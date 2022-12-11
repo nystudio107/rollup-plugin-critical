@@ -49,6 +49,10 @@ ssh: docker
 test: docker install
 	${DOCKERRUN} \
 		run test
+# Run tests in dev mode via npm run test-dev
+test-dev: docker install
+	${DOCKERRUN} \
+		run test-dev
 # Run npm update
 update: docker
 	${DOCKERRUN} \
