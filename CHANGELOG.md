@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.0.10 - UNRELEASED
+## 1.0.10 - 2022.12.11
 ### Added
 * Add `eslint` to the build phase
 
