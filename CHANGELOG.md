@@ -11,7 +11,8 @@ All notable changes to this project will be documented in this file.
 * Add `dev`, `release` commands, remove `update` dependency
 * Minify the `dist/` output
 * Clean up type definitions
-* Update to latest deps
+* Refactor to use `critical` `^5.0.0`
+* Switch tests from Jest to Vitest
 
 ## 1.0.9 - 2022.09.13
 ### Added
