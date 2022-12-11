@@ -1,9 +1,31 @@
-import { PenthouseConfig } from './penthouse';
+declare module 'critical';
 
-export type DeclCallback = (node: object, value: string) => boolean;
+type DeclCallback = (node: object, value: string) => boolean;
 
-export interface CriticalConfig {
-    /** Inline critical-path CSS using filamentgroup's loadCSS. Pass an object to configure `inline-critical` */
+interface PostcssUrlAsset {
+    /** original url */
+    url: string;
+    /** url pathname (url without search or hash) */
+     pathname: string;
+     /** absolute path to asset */
+    absolutePath: string;
+    /** current relative path to asset */
+    relativePath: string;
+    /** search from url, ex. ?query=1 from ./image.png?query=1 **/
+    search: string;
+    /** hash from url, ex. #spriteLink from ../asset.svg#spriteLink */
+    hash: string;
+}
+
+type RebaseFn = (asset: PostcssUrlAsset) => string;
+
+interface RebaseConfig {
+    from: string;
+    to: string;
+}
+
+interface CriticalConfig {
+    /** Inline critical-path CSS using Filament Group's loadCSS. Pass an object to configure `inline-critical` */
     inline: boolean;
     /** Base directory in which the source and destination are to be written */
     base: string;
@@ -45,7 +67,7 @@ export interface CriticalConfig {
      * If this doesn't work as expected you can always use this option to control the rebase paths.
      * See postcss-url for details. (https://github.com/pocketjoso/penthouse#usage-1).
      */
-    rebase: object | Function;
+    rebase: RebaseConfig | RebaseFn;
     /** ignore CSS rules */
     ignore: Partial<{
         atrule: Array<string>;

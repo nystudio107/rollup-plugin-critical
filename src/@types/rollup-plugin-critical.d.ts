@@ -1,14 +1,13 @@
-import {Plugin} from 'rollup';
-import {CriticalConfig} from './critical';
+type CriticalPluginCallback = (err: string) => void;
 
-export interface CriticalPages {
+interface CriticalPages {
     /** Combined with `criticalUrl` to determine the URLs to scrape for Critical CSS */
     uri: string;
     /** Critical CSS files are named with the `template` path, and saved to the `criticalBase` directory */
     template: string;
 }
 
-export interface CriticalPluginConfig {
+interface CriticalPluginConfig {
     /**
      * The base URL to use in combination with the `criticalPages` `uri`s to determine the URLs to scrape for Critical CSS.
      * This can also be a file system path. This is combined with `criticalPages.uri`
@@ -36,13 +35,3 @@ export interface CriticalPluginConfig {
      */
     criticalConfig?: Partial<CriticalConfig>;
 }
-
-/**
- * [Vite.js](https://vitejs.dev/) & [Rollup](https://rollupjs.org/) plugin for generating critical CSS
- * that uses the [critical](https://github.com/addyosmani/critical) generator under the hood.
- *
- * @param {CriticalPluginConfig} pluginConfig - the plugin configuration object
- * @param {Function} callback - callback upon completion of the critical CSS generation
- * @constructor
- */
-export function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Function): Plugin;

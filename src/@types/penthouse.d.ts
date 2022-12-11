@@ -1,4 +1,6 @@
-export interface PenthouseConfig {
+type PenthouseAllowedResponseCallback = (response: object) => boolean;
+
+interface PenthouseConfig {
     /** Accessible url. Use file:/// protocol for local html files. */
     url: string;
     /** Original css to extract critical css from */
@@ -55,5 +57,5 @@ export interface PenthouseConfig {
      * regex types are tested against the [response.status()](https://github.com/puppeteer/puppeteer/blob/v1.14.0/docs/api.md#responsestatus). A function is also allowed and
      * gets [Response](https://github.com/puppeteer/puppeteer/blob/v1.14.0/docs/api.md#class-response) as argument. The function should return a boolean.
      */
-    allowedResponseCode: number | RegExp | Function;
+    allowedResponseCode: number | RegExp | PenthouseAllowedResponseCallback;
 }
