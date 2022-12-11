@@ -3,10 +3,14 @@
 All notable changes to this project will be documented in this file.
 
 ## 1.0.10 - UNRELEASED
+### Added
+* Add `eslint` to the build phase
+
 ### Changed
 * Install the latest `npm` in the Docker image
 * Add `dev`, `release` commands, remove `update` dependency
 * Minify the `dist/` output
+* Clean up type definitions
 * Update to latest deps
 
 ## 1.0.9 - 2022.09.13
