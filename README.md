@@ -19,7 +19,7 @@ npm i -D rollup-plugin-critical
 ```js
 // rollup.config.js
 
-import { PluginCritical as critical } from 'rollup-plugin-critical';
+import {PluginCritical} from 'rollup-plugin-critical';
 
 export default {
   input: 'index.js',
@@ -28,7 +28,7 @@ export default {
     format: 'es',
   },
   plugins: [
-    critical({
+    PluginCritical({
         criticalUrl: 'https://nystudio107.com/',
         criticalBase: './',
         criticalPages: [
