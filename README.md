@@ -19,7 +19,7 @@ npm i -D rollup-plugin-critical
 ```js
 // rollup.config.js
 
-import critical from 'rollup-plugin-critical'
+import { PluginCritical as critical } from 'rollup-plugin-critical';
 
 export default {
   input: 'index.js',
