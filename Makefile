@@ -36,19 +36,17 @@ install: docker
 release: docker install
 	${DOCKERRUN} \
 		run release
-# ssh into the container
-ssh: docker
-	docker container run \
-    	--name ${CONTAINER} \
-    	--rm \
-    	-it \
-    	--entrypoint /bin/sh \
-    	-v `pwd`:/app \
-    	${CONTAINER}:${TAG}
+# ssh into the already running container
+ssh:
+	docker exec -it $(CONTAINER) /bin/sh
 # Run tests via npm run test
 test: docker install
 	${DOCKERRUN} \
 		run test
+# Run tests with coverage via npm run test-coverage
+test-coverage: docker install
+	${DOCKERRUN} \
+		run test-coverage
 # Run tests in dev mode via npm run test-dev
 test-dev: docker install
 	${DOCKERRUN} \

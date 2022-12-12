@@ -33,8 +33,9 @@
     "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,vue}' --fix",
     "prepublishOnly": "nr build",
     "release": "npm login && npm publish",
-    "test": "vitest run --coverage",
-    "test-dev": "vitest --coverage"
+    "test": "vitest run",
+    "test-coverage": "vitest run --coverage",
+    "test-dev": "vitest"
   },
   "dependencies": {
     "critical": "^5.0.0"
