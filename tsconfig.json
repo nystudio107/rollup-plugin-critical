@@ -24,8 +24,9 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "target": "esnext",
-    "typeRoots": [
-      "node_modules/@types"
+    "types": [
+      "node",
+      "vite/client"
     ]
   },
   "include": [
@@ -33,6 +34,6 @@
     "./src/**/*.vue"
   ],
   "exclude": [
-    "./node_modules"
+    "./dist/**"
   ]
 }
