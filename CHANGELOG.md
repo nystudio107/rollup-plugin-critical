@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.11 - 2022.12.12
+### Changed
+* Refactored the tests to use snapshots
+
+### Fixed
+* Fixed an issue where the plugin was being bundled as ESM, when it should be CommonJS for broader (and backwards) compatibility ([#9](https://github.com/nystudio107/rollup-plugin-critical/issues/9))
+
 ## 1.0.10 - 2022.12.11
 ### Added
 * Add `eslint` to the build phase
