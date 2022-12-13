@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.12 - 2022.12.12
+### Fix
+* Fix import of the now ESM-only `critical` package into the CJS build of `rollup-plugin-critical` ([#9](https://github.com/nystudio107/rollup-plugin-critical/issues/9))
+
 ## 1.0.11 - 2022.12.12
 ### Changed
 * Refactored the tests to use snapshots

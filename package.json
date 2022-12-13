@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-critical",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Rollup plugin to generate critical CSS.",
   "author": "nystudio107",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "nr lint && tsup src/index.ts --minify --sourcemap --dts --format cjs,esm",
+    "build": "tsup src/index.ts --clean --minify --sourcemap --dts --format cjs,esm",
     "check": "tsc -p config/base.json --noEmit",
     "dev": "nr build --watch",
     "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,vue}' --fix",
