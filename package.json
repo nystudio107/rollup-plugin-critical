@@ -33,7 +33,7 @@
     "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,vue}' --fix",
     "prepublishOnly": "nr build",
     "release": "npm login && npm publish",
-    "test": "vitest run",
+    "test": "vitest run --coverage",
     "test-coverage": "vitest run --coverage",
     "test-dev": "vitest"
   },
