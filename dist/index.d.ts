@@ -10,4 +10,4 @@ import { Plugin } from 'rollup';
  */
 declare function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalPluginCallback): Plugin;
 
-export { PluginCritical };
+export { PluginCritical as default };
