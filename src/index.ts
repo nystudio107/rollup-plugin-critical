@@ -25,7 +25,7 @@ const defaultCriticalConfig: Partial<CriticalConfig> = {
  * @param {Function} callback - callback upon completion of the critical CSS generation
  * @constructor
  */
-export function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalPluginCallback): Plugin {
+function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalPluginCallback): Plugin {
   return {
     name: 'critical',
     async writeBundle(outputOptions, bundle) {
@@ -72,3 +72,5 @@ export function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: Cr
     }
   }
 }
+
+export default PluginCritical;

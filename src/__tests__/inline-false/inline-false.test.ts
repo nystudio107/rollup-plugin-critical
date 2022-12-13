@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import {PluginCritical} from '../../index';
+import PluginCritical from '../../index';
 import {Plugin} from 'rollup';
 import {expect, test} from 'vitest'
 
