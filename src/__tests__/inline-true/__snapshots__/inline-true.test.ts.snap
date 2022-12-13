@@ -1,0 +1,18 @@
+// Vitest Snapshot v1
+
+exports[`\`inline: true\` Critical CSS generation 1`] = `
+"<html lang=\\"en\\">
+    <head>
+        <title>Critical CSS test</title>
+        <style>.heading{color:red}</style>
+        <link rel=\\"stylesheet\\" href=\\"style.css\\" media=\\"print\\" onload=\\"this.media='all'\\">
+    </head>
+    <body>
+        <h1 class=\\"heading\\">
+            hello, world.
+        </h1>
+        <noscript><link rel=\\"stylesheet\\" href=\\"style.css\\"></noscript>
+    </body>
+</html>
+"
+`;

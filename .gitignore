@@ -3,7 +3,7 @@ node_modules/
 yarn-error.log
 npm-debug.log
 coverage/
-src/test/**/test_*
+src/__tests__/**/__output__/*
 .npmrc
 
 # MISC FILES
