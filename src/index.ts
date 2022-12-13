@@ -1,6 +1,11 @@
 import {Plugin} from 'rollup';
 import * as path from 'path';
-import {generate} from 'critical';
+// Horrible nonsense to import an ESM module into CJS
+// ref: https://adamcoster.com/blog/commonjs-and-esm-importexport-compatibility-examples
+let generate: Function;
+(async function () {
+  generate = (await import('critical')).generate;
+})();
 
 const criticalSuffix = '_critical.min.css';
 
