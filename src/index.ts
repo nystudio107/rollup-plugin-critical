@@ -41,13 +41,16 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalP
         return;
       }
       // Iterate through the pages
-      for (const page of pluginConfig.criticalPages) {
-        const criticalBase = pluginConfig.criticalBase;
-        const criticalSrc = pluginConfig.criticalUrl + page.uri;
-        // If inline is set to true, use HTML as target, otherwise CSS with suffix
-        const criticalTarget = (pluginConfig.criticalConfig && pluginConfig.criticalConfig.inline == true) ? page.template + ".html" : page.template + criticalSuffix;
-        // Merge in our options
-        const options = Object.assign(
+      const sites = Array.isArray(pluginConfig.criticalUrl) ? pluginConfig.criticalUrl : [{ url: pluginConfig.criticalUrl, id: "" }];
+      for (const {url, id = ""} of sites) {
+        if (!url) throw new Error("Configuration is missing a criticalUrl property.");
+        for (const page of pluginConfig.criticalPages) {
+          const criticalBase = pluginConfig.criticalBase;
+          const criticalSrc = url + page.uri;
+          // If inline is set to true, use HTML as target, otherwise CSS with suffix
+          const criticalTarget = (pluginConfig.criticalConfig && pluginConfig.criticalConfig.inline == true) ? page.template + ".html" : page.template + (id ? "_" + id : "") + criticalSuffix;
+          // Merge in our options
+          const options = Object.assign(
             { css },
             defaultCriticalConfig,
             {
@@ -56,20 +59,21 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalP
               target: criticalTarget,
             },
             pluginConfig.criticalConfig
-        );
-        // Horrible nonsense to import an ESM module into CJS
-        // ref: https://adamcoster.com/blog/commonjs-and-esm-importexport-compatibility-examples
-        const generate = (await import('critical')).generate;
-        // Generate the Critical CSS
-        console.log(`Generating critical CSS from ${criticalSrc} to ${criticalTarget}`);
-        await generate(options, (err: string) => {
-          if (err) {
-            console.error(err);
-          }
-          if (callback) {
-            callback(err);
-          }
-        });
+          );
+          // Horrible nonsense to import an ESM module into CJS
+          // ref: https://adamcoster.com/blog/commonjs-and-esm-importexport-compatibility-examples
+          const generate = (await import('critical')).generate;
+          // Generate the Critical CSS
+          console.log(`Generating critical CSS from ${criticalSrc} to ${criticalTarget}`);
+          await generate(options, (err: string) => {
+            if (err) {
+              console.error(err);
+            }
+            if (callback) {
+              callback(err);
+            }
+          });
+        }
       }
     }
   }
