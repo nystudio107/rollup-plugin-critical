@@ -28,7 +28,7 @@ export default {
     format: 'es',
   },
   plugins: [
-    PluginCritical({
+    PluginCritical.default({
         criticalUrl: 'https://nystudio107.com/',
         criticalBase: './',
         criticalPages: [
