@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ## 1.0.13 - 2023.11.22
 ###  Changed
 * Switch over to using Node 20 and NPM 10 in the Dockerfile
+* Update to Vite `^5.0.0` and Vitest `^1.0.0-beta.5`
 
 ### Fix
 * Fix an issue where building with a project of `"type": "module"` would fail because conditional exports were not defined in `"exports"` ([#12](https://github.com/nystudio107/rollup-plugin-critical/issues/12))
