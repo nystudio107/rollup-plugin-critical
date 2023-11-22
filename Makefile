@@ -1,4 +1,4 @@
-TAG?=16-alpine
+TAG?=20-alpine
 CONTAINER?=$(shell basename $(CURDIR))
 DOCKERRUN=docker container run \
 	--name ${CONTAINER} \
