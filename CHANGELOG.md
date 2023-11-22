@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.13 - 2023.11.22
+###  Changed
+* Switch over to using Node 20 and NPM 10 in the Dockerfile
+* Update to Vite `^5.0.0` and Vitest `^1.0.0-beta.5`
+
+### Fix
+* Fix an issue where building with a project of `"type": "module"` would fail because conditional exports were not defined in `"exports"` ([#12](https://github.com/nystudio107/rollup-plugin-critical/issues/12))
+
 ## 1.0.12 - 2022.12.12
 ### Fix
 * Fix import of the now ESM-only `critical` package into the CJS build of `rollup-plugin-critical` ([#9](https://github.com/nystudio107/rollup-plugin-critical/issues/9))

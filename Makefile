@@ -1,4 +1,4 @@
-TAG?=16-alpine
+TAG?=20-alpine
 CONTAINER?=$(shell basename $(CURDIR))
 DOCKERRUN=docker container run \
 	--name ${CONTAINER} \
@@ -57,7 +57,7 @@ update: docker
 		update
 npm: docker
 	${DOCKERRUN} \
-		$(filter-out $@,$(MAKECMDGOALS))
+		$(filter-out $@,$(MAKECMDGOALS)) $(MAKEFLAGS)
 %:
 	@:
 # ref: https://stackoverflow.com/questions/6273608/how-to-pass-argument-to-makefile-from-command-line
