@@ -21,11 +21,11 @@
   },
   "exports": {
     "types": "./dist/index.d.ts",
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js"
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
@@ -48,15 +48,15 @@
     "critical": "^5.0.0"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.18.8",
-    "@types/node": "^18.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@vitest/coverage-c8": "^0.25.7",
+    "@antfu/ni": "^0.21.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@vitest/coverage-v8": "^1.0.0-beta.5",
     "eslint": "^8.0.0",
-    "rollup": "^3.0.0",
-    "tsup": "^6.0.0",
+    "rollup": "^4.0.0",
+    "tsup": "^8.0.0",
     "typescript": "latest",
-    "vite": "^4.0.0",
-    "vitest": "^0.25.7"
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0-beta.5"
   }
 }
