@@ -45,7 +45,7 @@
     "test-dev": "vitest"
   },
   "dependencies": {
-    "critical": "^5.0.0"
+    "critical": "^7.0.0"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.0",
