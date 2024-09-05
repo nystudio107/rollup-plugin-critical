@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-critical",
   "type": "module",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Rollup plugin to generate critical CSS.",
   "author": "nystudio107",
   "license": "MIT",
@@ -48,15 +48,15 @@
     "critical": "^7.0.0"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.21.0",
+    "@antfu/ni": "^0.23.0",
     "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@vitest/coverage-v8": "^1.0.0-beta.5",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
     "eslint": "^8.0.0",
     "rollup": "^4.0.0",
     "tsup": "^8.0.0",
     "typescript": "latest",
     "vite": "^5.0.0",
-    "vitest": "^1.0.0-beta.5"
+    "vitest": "^2.0.0"
   }
 }

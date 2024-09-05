@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.14 - 2024.09.04
+###  Changed
+* Updated to the latest Critical & other deps
+
 ## 1.0.13 - 2023.11.22
 ###  Changed
 * Switch over to using Node 20 and NPM 10 in the Dockerfile
