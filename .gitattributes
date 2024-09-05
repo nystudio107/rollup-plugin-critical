@@ -2,6 +2,7 @@
 /.gitattributes export-ignore
 /.github/ export-ignore
 /.gitignore export-ignore
+/.scrutinizer.yml export-ignore
 /coverage/ export-ignore
 /package-lock.json export-ignore
 
