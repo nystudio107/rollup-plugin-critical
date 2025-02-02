@@ -1,4 +1,4 @@
-TAG?=20-alpine
+TAG?=22-alpine
 CONTAINER?=$(shell basename $(CURDIR))
 DOCKER_RUN=docker container run --rm -it -v `pwd`:/app
 IMAGE_INFO=$(shell docker image inspect $(CONTAINER):$(TAG))
