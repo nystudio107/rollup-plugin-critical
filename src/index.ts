@@ -61,7 +61,7 @@ function PluginCritical(pluginConfig: CriticalPluginConfig, callback?: CriticalP
         // ref: https://adamcoster.com/blog/commonjs-and-esm-importexport-compatibility-examples
         const generate = (await import('critical')).generate;
         // Generate the Critical CSS
-        console.log(`Generating critical CSS from ${criticalSrc} to ${criticalTarget}`);
+        console.log(`Generating critical CSS from ${options.src} to ${options.target}`);
         await generate(options, (err: string) => {
           if (err) {
             console.error(err);
