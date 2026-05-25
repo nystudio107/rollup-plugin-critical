@@ -44,10 +44,10 @@ interface CriticalConfig {
     base: string;
     /** HTML source to be operated against. This option takes precedence over the `src` option */
     html: string;
-    /** An array of paths to css files, file globs or Vinyl file objects. */
-    css: Array<string>;
-    /** Location of the HTML source to be operated against */
-    src: string;
+    /** A path to a css file, or an array of paths to css files, file globs or Vinyl file objects. */
+    css: string | Array<string>;
+    /** Location of the HTML source to be operated against. Can be a URL, file path, or Vinyl file object. */
+    src: string | object;
     /**
      * Location of where to save the output of an operation.
      * Use an object with 'html' and 'css' props if you want to store both
