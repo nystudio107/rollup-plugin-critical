@@ -27,6 +27,9 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "files": [
     "dist",
     "LICENSE",
@@ -45,7 +48,7 @@
     "test-dev": "vitest"
   },
   "dependencies": {
-    "critical": "^7.0.0"
+    "critical": "^8.0.0"
   },
   "devDependencies": {
     "@antfu/ni": "^0.23.0",
