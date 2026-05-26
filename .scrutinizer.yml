@@ -1,8 +1,9 @@
 checks:
   javascript: true
 build:
+  image: default-jammy
   environment:
-    node: v16.16.0
+    node: v22
   nodes:
     analysis:
       tests:
