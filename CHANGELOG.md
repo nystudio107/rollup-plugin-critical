@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.16 - 2026.06.23
+###  Changed
+* Updated to `critical` `^8.0.0` to address issues with generating Tailwind CSS classes ([#21](https://github.com/nystudio107/rollup-plugin-critical/issues/21))
+
 ## 1.0.15 - 2025.02.02
 ###  Changed
 * Updated to Node 22 & npm 11
