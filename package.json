@@ -14,7 +14,7 @@
   "homepage": "https://github.com/nystudio107/rollup-plugin-critical",
   "repository": {
     "type": "git",
-    "url": "git+ssh://github.com/nystudio107/rollup-plugin-critical"
+    "url": "git+https://github.com/nystudio107/rollup-plugin-critical.git"
   },
   "bugs": {
     "url": "https://github.com/nystudio107/rollup-plugin-critical/issues"
