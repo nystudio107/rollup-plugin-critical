@@ -1,4 +1,4 @@
-type CriticalPluginCallback = (err: string) => void;
+type CriticalPluginCallback = (err: Error | null) => void;
 
 interface CriticalPages {
     /** Combined with `criticalUrl` to determine the URLs to scrape for Critical CSS */
