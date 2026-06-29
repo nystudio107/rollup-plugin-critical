@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 ## 1.0.17 - UNRELEASED
+### Added
+* Switched to `tsdown` & `rolldown` for the build & plugin
+
 ###  Changed
 * Update to latest versions of Vite, Vitest, etc.
 * Updated type definitions to reflect the latest versions of Critical
