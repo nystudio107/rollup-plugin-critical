@@ -39,7 +39,7 @@
     "lint": "tsc --noEmit && eslint './src/**/*.{js,ts,vue}' --fix",
     "prepublishOnly": "nr build",
     "release": "npm run lint && npm login && npm publish",
-    "test": "vitest run --coverage",
+    "test": "vitest run",
     "test-coverage": "vitest run --coverage",
     "test-ci": "vitest run --coverage.enabled --coverage.reporter='text-summary'",
     "test-dev": "vitest"
