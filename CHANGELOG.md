@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.17 - UNRELEASED
+###  Changed
+* Update to latest versions of Vite, Vitest, etc.
+* Updated type definitions to reflect the latest versions of Critical
+
+### Fixed
+* Fix Scrutinizer build
+* Fix Github tests
+
 ## 1.0.16 - 2026.06.23
 ###  Changed
 * Updated to `critical` `^8.0.0` to address issues with generating Tailwind CSS classes ([#21](https://github.com/nystudio107/rollup-plugin-critical/issues/21))
