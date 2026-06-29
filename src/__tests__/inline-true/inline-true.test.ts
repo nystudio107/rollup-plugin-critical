@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import PluginCritical from '../../index';
-import { Plugin } from 'rollup';
+import PluginCritical from '../../index.ts';
+import { Plugin } from 'rolldown';
 import {expect, test} from 'vitest'
 
 const testRoot = path.join(__dirname, '/');

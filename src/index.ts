@@ -1,4 +1,4 @@
-import {Plugin} from 'rollup';
+import {Plugin} from 'rolldown';
 import * as path from 'path';
 import {generate} from 'critical';
 
