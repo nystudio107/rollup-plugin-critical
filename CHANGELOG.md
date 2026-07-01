@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.0.17 - UNRELEASED
+## 1.0.17 - 2026.07.01
 ### Added
 * Switched to `tsdown` & `rolldown` for the build & plugin
 
