@@ -1,4 +1,13 @@
-declare module 'critical';
+declare module 'critical' {
+    export function generate(params: Partial<CriticalConfig>, cb?: (err: Error | null, result?: CriticalResult) => void): Promise<CriticalResult>;
+    export function stream(params: Partial<CriticalConfig>): NodeJS.ReadWriteStream;
+}
+
+interface CriticalResult {
+    css: string;
+    html: string;
+    uncritical: string;
+}
 
 type DeclCallback = (node: object, value: string) => boolean;
 
@@ -6,8 +15,8 @@ interface PostcssUrlAsset {
     /** original url */
     url: string;
     /** url pathname (url without search or hash) */
-     pathname: string;
-     /** absolute path to asset */
+    pathname: string;
+    /** absolute path to asset */
     absolutePath: string;
     /** current relative path to asset */
     relativePath: string;
@@ -26,15 +35,19 @@ interface RebaseConfig {
 
 interface CriticalConfig {
     /** Inline critical-path CSS using Filament Group's loadCSS. Pass an object to configure `inline-critical` */
-    inline: boolean;
+    inline: boolean | Partial<{
+        strategy: string;
+        basePath: string;
+        replaceStylesheets: string[] | boolean | ((href: string) => string);
+    }>;
     /** Base directory in which the source and destination are to be written */
     base: string;
     /** HTML source to be operated against. This option takes precedence over the `src` option */
     html: string;
-    /** An array of paths to css files, file globs or Vinyl file objects. */
-    css: Array<string>;
-    /** Location of the HTML source to be operated against */
-    src: string;
+    /** A path to a css file, or an array of paths to css files, file globs or Vinyl file objects. */
+    css: string | Array<string>;
+    /** Location of the HTML source to be operated against. Can be a URL, file path, or Vinyl file object. */
+    src: string | object;
     /**
      * Location of where to save the output of an operation.
      * Use an object with 'html' and 'css' props if you want to store both
@@ -48,6 +61,8 @@ interface CriticalConfig {
     width: number;
     /** Height of the target viewport */
     height: number;
+    /** An array of viewport dimensions to generate critical CSS for */
+    dimensions: Array<{ width: number; height: number }>;
     /**
      * Remove the inlined styles from any stylesheets referenced in the HTML.
      * It generates new references based on extracted content so it's safe to use for
@@ -63,27 +78,37 @@ interface CriticalConfig {
     /** Sets a max file size (in bytes) for base64 inlined images */
     maxImageFileSize: number;
     /**
-     * Critical tries it's best to rebase the asset paths relative to the document.
+     * Critical tries its best to rebase the asset paths relative to the document.
      * If this doesn't work as expected you can always use this option to control the rebase paths.
-     * See postcss-url for details. (https://github.com/pocketjoso/penthouse#usage-1).
+     * See postcss-url for details.
      */
-    rebase: RebaseConfig | RebaseFn;
-    /** ignore CSS rules */
-    ignore: Partial<{
+    rebase: RebaseConfig | RebaseFn | boolean;
+    /** Ignore CSS rules. Can be an array of selectors or an object with atrule/rule/decl filters */
+    ignore: Array<string> | Partial<{
         atrule: Array<string>;
         rule: Array<string>;
         decl: DeclCallback;
     }>;
+    /** Array of css selectors to keep in critical css, even if not appearing in critical viewport */
+    include: Array<string | RegExp>;
     /** User agent to use when fetching a remote src */
     userAgent: string;
-    /** Configuration options for `penthouse`. */
+    /** Configuration options for penthouse */
     penthouse: Partial<PenthouseConfig>;
-    /** Configuration options for `got`. */
+    /** Configuration options for `got` */
     request: object;
-    /** RFC2617 basic authorization: `user` */
+    /** RFC2617 basic authorization: user */
     user: string;
-    /** RFC2617 basic authorization: `pass` */
+    /** RFC2617 basic authorization: pass */
     pass: string;
     /** Throw an error if no css is found */
     strict: boolean;
+    /** Ignore styles of already inlined stylesheets */
+    ignoreInlinedStyles: boolean;
+    /** Number of pages to process in parallel */
+    concurrency: number;
+    /** PostCSS plugins to apply */
+    postcss: Array<object>;
+    /** Options for clean-css */
+    cleanCSS: object;
 }
