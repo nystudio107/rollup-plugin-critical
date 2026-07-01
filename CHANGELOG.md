@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.18 - UNRELEASED
+### Fixed
+* Fix the "Generating critical CSS from..." log, currently displaying the src and target before merge with the user config ([#23](https://github.com/nystudio107/rollup-plugin-critical/pull/23/))
+
 ## 1.0.17 - 2026.07.01
 ### Added
 * Switched to `tsdown` & `rolldown` for the build & plugin
