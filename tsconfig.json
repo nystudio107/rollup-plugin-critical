@@ -2,12 +2,14 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "node_modules",
+    "allowImportingTsExtensions": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "declaration": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "isolatedModules": true,
     "noEmit": true,
     "noImplicitAny": true,
     "outDir": "./dist/",
@@ -23,7 +25,7 @@
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
-    "target": "esnext",
+    "target": "ES2022",
     "types": [
       "node",
       "vite/client"

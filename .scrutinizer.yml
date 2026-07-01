@@ -1,8 +1,9 @@
 checks:
   javascript: true
 build:
+  image: default-jammy
   environment:
-    node: v16.16.0
+    node: v22
   nodes:
     analysis:
       tests:
@@ -12,7 +13,7 @@ build:
     coverage:
       tests:
         override:
-          - command: 'npm run test'
+          - command: 'npm run test-coverage'
             coverage:
               file: 'coverage/clover.xml'
               format: 'clover'
